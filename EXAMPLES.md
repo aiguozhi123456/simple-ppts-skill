@@ -50,13 +50,13 @@ title_frame.text = "Q3 2024 Quarterly Report"
 title_frame.paragraphs[0].font.size = Pt(44)
 title_frame.paragraphs[0].font.bold = True
 title_frame.paragraphs[0].alignment = PP_ALIGN.CENTER
-
 # Slide 2: Key Metrics
 slide2 = prs.slides.add_slide(prs.slide_layouts[6])
 title2 = slide2.shapes.add_textbox(Inches(0.5), Inches(0.5), Inches(9), Inches(0.8))
 title2.text_frame.text = "Key Metrics"
 title2.text_frame.paragraphs[0].font.size = Pt(32)
 title2.text_frame.paragraphs[0].font.bold = True
+title2.text_frame.paragraphs[0].font.color.rgb = RGBColor(31, 78, 121)  # Title color
 
 metrics = [
     "Revenue: $2.5M (+15% YoY)",
@@ -71,13 +71,13 @@ for metric in metrics:
     box.text_frame.text = f"• {metric}"
     box.text_frame.paragraphs[0].font.size = Pt(20)
     y = y + Inches(0.7)
-
 # Slide 3: Challenges
 slide3 = prs.slides.add_slide(prs.slide_layouts[6])
 title3 = slide3.shapes.add_textbox(Inches(0.5), Inches(0.5), Inches(9), Inches(0.8))
 title3.text_frame.text = "Challenges & Opportunities"
 title3.text_frame.paragraphs[0].font.size = Pt(32)
 title3.text_frame.paragraphs[0].font.bold = True
+title3.text_frame.paragraphs[0].font.color.rgb = RGBColor(31, 78, 121)  # Title color
 
 challenges = [
     "Supply chain delays affecting production",
@@ -145,13 +145,13 @@ for category, metrics in data.items():
     title_box.text_frame.paragraphs[0].font.size = Pt(32)
     title_box.text_frame.paragraphs[0].font.bold = True
     title_box.text_frame.paragraphs[0].font.color.rgb = RGBColor(31, 78, 121)
-    
     # Metrics
     y = Inches(1.8)
     for metric in metrics:
         box = slide.shapes.add_textbox(Inches(1), y, Inches(8), Inches(0.5))
         box.text_frame.text = f"• {metric}"
         box.text_frame.paragraphs[0].font.size = Pt(20)
+        box.text_frame.paragraphs[0].font.color.rgb = RGBColor(89, 89, 89)  # Bullet color
         y = y + Inches(0.6)
 
 prs.save('dashboard.pptx')
@@ -203,7 +203,6 @@ This program covers:
 
 Please take notes and ask questions."""
 content2.text_frame.paragraphs[0].font.size = Pt(20)
-
 # Section 2: Product Knowledge
 divider2 = prs.slides.add_slide(prs.slide_layouts[6])
 bg2 = divider2.shapes.add_shape(1, Inches(0), Inches(0), Inches(10), Inches(5.625))
