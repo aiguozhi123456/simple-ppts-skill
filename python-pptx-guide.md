@@ -1,9 +1,3 @@
----
-name: pptx_simple
-description: "Lightweight PowerPoint presentation creation using python-pptx library. Use for quick generation, automated reports, structured content with simple formatting. Alternative to html2pptx when HTML rendering complexity is unnecessary."
-license: Proprietary. LICENSE.txt has complete terms
----
-
 # PPTX Simple - Python-pptx Guide
 
 ## Overview
