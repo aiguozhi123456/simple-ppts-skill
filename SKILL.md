@@ -1,85 +1,48 @@
 ---
-name: pptx_simple
-description: "Lightweight PowerPoint presentation creation using python-pptx library. Ideal for: (1) Quick test presentations, (2) Automated report generation from data, (3) Structured content with simple formatting, (4) Python-only environments. Alternative to html2pptx when HTML rendering complexity is unnecessary."
+name: simple-pptx-skill
+description: Create PowerPoint presentations using python-pptx for automated reports, data-driven slides, and simple layouts
+dependencies: python-pptx
 ---
-
-# PPTX Simple - Python-pptx Guide
 
 ## Overview
 
-Create .pptx presentations using python-pptx library. Ideal for:
-- Quick generation without complex HTML rendering
-- Automated report generation from data
-- Simple text and shape layouts
-- Python-only environments
-- Performance-critical scenarios
+Automated .pptx creation using python-pptx library. Ideal for data-driven reports, simple layouts, and Python-only environments.
 
-## When to Use This Approach
+## When to Apply
 
-**Use python-pptx when**:
-- Quick generation from data
-- Simple text and shape layouts
+**Use when**:
+- Creating automated reports from data
+- Simple text/shape layouts required
 - Python-only environment constraints
-- Performance is critical
-- Report automation
+- Performance-critical scenarios
+- Programmatic control over elements needed
 
-## Quick Start
+**Do NOT use when**:
+- Complex HTML/CSS styling needed (use html2pptx)
+- Rich media/graphics are primary focus
 
-### Installation
+## Constraints & Limitations
 
-```bash
-pip install python-pptx
-```
-
-### Basic Example
-
-```python
-from pptx import Presentation
-from pptx.util import Inches, Pt
-from pptx.dml.color import RGBColor
-from pptx.enum.text import PP_ALIGN
-
-# Create presentation
-prs = Presentation()
-prs.slide_width = Inches(10)
-prs.slide_height = Inches(5.625)  # 16:9
-
-# Add slide
-blank_layout = prs.slide_layouts[6]
-slide = prs.slides.add_slide(blank_layout)
-
-# Add text box
-text_box = slide.shapes.add_textbox(Inches(1), Inches(2), Inches(8), Inches(1))
-text_frame = text_box.text_frame
-text_frame.text = "Hello, World!"
-
-# Add paragraph with formatting
-p = text_frame.paragraphs[0]
-p.font.size = Pt(36)
-p.font.bold = True
-p.font.color.rgb = RGBColor(68, 114, 196)
-p.alignment = PP_ALIGN.CENTER
-
-# Save
-prs.save('presentation.pptx')
-```
-
-## Detailed Guide
-
-For complete API reference, patterns, limitations, and troubleshooting, see: [python-pptx-guide.md](python-pptx-guide.md)
+- Text overflow is silently truncated
+- Only web-safe fonts supported
+- No HTML/CSS rendering
+- Basic shapes only (no complex graphics)
+- Requires python-pptx dependency
 
 ## Key Rules
 
-**ALWAYS follow these**:
-- ✅ Use `RGBColor(r, g, b)` for ALL colors, never tuples `(r, g, b)`
-- ✅ Use `Inches()` or `Pt()` for ALL measurements, never raw numbers
-- ✅ Use web-safe fonts: Arial, Helvetica, Times New Roman, Georgia, Courier New, Verdana
-- ✅ Use blank layout (index 6) for maximum control
-- ✅ Check text overflow: Long text will be cut off without warning
+✅ Use `RGBColor(r,g,b)` never tuples
+✅ Use `Inches()`/`Pt()` never raw numbers
+✅ Use blank layout `prs.slide_layouts[6]`
+✅ Check box dimensions for overflow
 
-## Code Style
+## Additional Files
 
-- Write concise code
-- Use descriptive function names
-- Group related operations into reusable functions
-- Test text overflow before final save
+- [PATTERNS.md](PATTERNS.md) - Core code patterns and functions
+- [EXAMPLES.md](EXAMPLES.md) - Complete working examples
+- [REFERENCE.md](REFERENCE.md) - Colors, fonts, quick reference
+- [python-pptx-guide.md](python-pptx-guide.md) - Full API documentation
+
+If you are already familiar with python-pptx, ask the user for permission to skip reading the full documentation to reduce token consumption.
+
+Read PATTERNS.md for implementation patterns, EXAMPLES.md for usage demonstrations, and REFERENCE.md for styling references.
